@@ -9,7 +9,7 @@
   |first_name        |string |null:false |
   |family_name_kana  |string |null:false |
   |first_name_kana   |string |null:false |
-
+ 
   
   ### Association
 
@@ -27,11 +27,11 @@
   |shipping_cost     |string |mull:false |
   |shipping_days     |string |null:false |
   |prefecture        |string |null:false |
-  
+  |price             |integer|null:false
   ### Association
 -  belongs_to :user
 
-## buysテーブル
+## addressesテーブル
   | colum            |type   |options    |
   |------------------|-------|-----------|
   |post_code         |string |null:false |
