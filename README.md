@@ -14,7 +14,7 @@
   ### Association
 
 - has_many : items
-- belongs_to : buy
+- belongs_to : address
 
 
 ## itemsテーブル
