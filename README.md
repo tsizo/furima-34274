@@ -14,32 +14,52 @@
   ### Association
 
 - has_many : items
-- belongs_to : address
+- has_many : purchases
+
 
 
 ## itemsテーブル
 
-  | colum            |type   |options    |
-  |------------------|-------|-----------|
-  |name              |string |null:false |
-  |category          |string |null:false |
-  |status            |string |null:false |
-  |shipping_cost     |string |mull:false |
-  |shipping_days     |string |null:false |
-  |prefecture        |string |null:false |
-  |price             |integer|null:false
+  | colum            |type      |options                    |
+  |------------------|----------|---------------------------|
+  |name              |string    |null:false                 |
+  |category_id       |integer   |null:false,foreign_key:true|
+  |status_id         |integer   |null:false,foreign_key:true|
+  |shipping_cost_id  |integer   |mull:false,foreign_key:true|
+  |shipping_days_id  |integer   |null:false,foreign_key:true|
+  |prefecture_id     |integer   |null:false,foreign_key:true|
+  |price_id          |integer   |null:false,foreign_key:true|
+  |user_id           |references|null:false,foreign_key:true|
   ### Association
 -  belongs_to :user
+-  has_one : purchase
 
 ## addressesテーブル
-  | colum            |type   |options    |
-  |------------------|-------|-----------|
-  |post_code         |string |null:false |
-  |prefecture        |string |null:false |
-  |city              |string |null:false |
-  |address           |string |mull:false |
-  |building_name     |string |           |
-  |phone_number      |string |null:false |
-  
+  | colum            |type   |options                     |
+  |------------------|-------|----------------------------|
+  |post_code         |string |null:false                  |
+  |prefecture_id     |integer|null:false,foreign_key:true |
+  |city              |string |null:false                  |
+  |address           |string |mull:false                  |
+  |building_name     |string |                            |
+  |phone_number      |string |null:false                  |
+        
   ### Association
-  - belongs_to : user
+  - belongs_to : purchase
+  
+
+  ## purchasesテーブル
+  | colum            |type      |options                     |
+  |------------------|----------|----------------------------|
+  |user_id           |references|null:false ,foreign_key:true|
+  |category_id       |integer   |null:false,foreign_key:true|
+  |status_id         |integer   |null:false,foreign_key:true|
+  |shipping_cost_id  |integer   |mull:false,foreign_key:true|
+  |shipping_days_id  |integer   |null:false,foreign_key:true|
+  |prefecture_id     |integer   |null:false,foreign_key:true|
+  |price_id          |integer   |null:false,foreign_key:true|
+
+### Association
+- belongs_to : user
+- has_one : address
+- belongs_to : item
