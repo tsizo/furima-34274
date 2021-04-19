@@ -2,7 +2,7 @@
   |colum             |type   |options                |
   |------------------|-------|-----------------------|
   |nickname          |string |null:false             |
-  |email             |string |unique:true、null:false|
+  |email             |string |unique:true,null:false|
   |encrypted_password|string |null:false             |
   |birth_day         |date   |mull:false             |
   |family_name       |string |null:false             |
@@ -28,7 +28,7 @@
   |shipping_cost_id  |integer   |mull:false                 |
   |shipping_days_id  |integer   |null:false                 |
   |prefecture_id     |integer   |null:false                 |
-  |price             |integer   |null:false,foreign_key:true|
+  |price             |integer   |null:false                 |
   |user              |references|null:false,foreign_key:true|
   |introduction      |text      |null:false                 |
   ### Association
