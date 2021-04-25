@@ -1,10 +1,10 @@
 class User < ApplicationRecord
- validates :nickname, presense:true
- validates :family_name, presense:true
- validates :first_name, presense:true
- validates :family_name_kana, presense:true
- validates :first_name_kana, presense:true
- validates :birth_day, presense:true
+ validates :nickname, presence:true
+ validates :family_name, presence:true
+ validates :first_name, presence:true
+ validates :family_name_kana, presence:true
+ validates :first_name_kana, presence:true
+ validates :birth_day, presence:true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
