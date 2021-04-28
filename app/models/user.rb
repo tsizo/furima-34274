@@ -5,7 +5,7 @@ class User < ApplicationRecord
  validates :family_name_kana, presence:true
  validates :first_name_kana, presence:true
  validates :birth_day, presence:true
-
+ validates :encrypted_password,     presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
