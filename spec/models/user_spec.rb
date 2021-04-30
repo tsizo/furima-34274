@@ -96,11 +96,21 @@ it 'first_name_kanaが全角カタカナでなければ登録できないこと'
  @user.valid?
   expect(@user.errors.full_messages).to include("First name kana is invalid")
 end
-it "passwordが半角英数字混合でなければ登録できない" do
+it "passwordが英語のみでは登録できない" do
   @user.password = "aaaaaa"
   @user.valid?
   expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
   end
+  it "passwordが数字のみでは登録できない" do
+    @user.password = "123456"
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+    it "passwordが全角のみでは登録できない" do
+      @user.password = "１２３４５６"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+      end  
 end
 end
 end
