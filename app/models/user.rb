@@ -6,7 +6,8 @@ with_options presence:true do
  validates :family_name_kana,format:{with:/\A[ァ-ヶー－]+\z/}
  validates :first_name_kana,format:{with:/\A[ァ-ヶー－]+\z/}
  validates :birth_day
- validates :encrypted_password, length:{minimum:6}
+ validates :encrypted_password
+ validates :password,format:{with:/\A[a-zA-Z0-9]+\z/}
 end
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

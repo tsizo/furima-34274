@@ -67,11 +67,21 @@ it '重複したemailが存在する場合登録できないこと' do
   another_user.valid?
   expect(another_user.errors.full_messages).to include("Email has already been taken")
 end
+it "emailが＠を含まないと登録できない"do
+@user.email='testexample'
+@user.valid?
+expect(@user.errors.full_messages).to include("Email is invalid")
+end
 it 'passwordが５文字以下であれば登録できないこと' do
   @user.password = '12345'
   @user.password_confirmation = '12345'
   @user.valid?
   expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+end
+it'passwordは半角英数字混合でないと登録できないこと'do
+@user.password = '１２３４５６'
+@user.valid?
+expect(@user.errors.full_messages).to include("Password is invalid")
 end
 it 'family_nameが全角入力でなければ登録できないこと' do
   @user.family_name ="aiueo"
@@ -107,10 +117,10 @@ it "passwordが英語のみでは登録できない" do
     expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
     it "passwordが全角のみでは登録できない" do
-      @user.password = "１２３４５６"
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
-      end  
+   @user.password = "１２３４５６"
+  @user.valid?
+expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+ end  
 end
 end
 end
