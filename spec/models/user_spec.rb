@@ -76,30 +76,30 @@ end
 it 'family_nameが全角入力でなければ登録できないこと' do
   @user.family_name ="aiueo"
   @user.valid?
-  expect(@user.errors.full_messages).to include("Family name Full-width characters")
+  expect(@user.errors.full_messages).to include("Family name is invalid")
 end
 
 it 'first_nameが全角入力でなければ登録できないこと' do
   @user.first_name="ｱｲｳｴｵ"
   @user.valid?
-  expect(@user.errors.full_messages).to include("First name Full-width characters")
+  expect(@user.errors.full_messages).to include("First name is invalid")
 end
 
 it 'family_name_kanaが全角カタカナでなければ登録できないこと' do
   @user.family_name_kana="あいうえお"
   @user.valid?
-  expect(@user.errors.full_messages).to include("Family name kana Full-width characters")
+  expect(@user.errors.full_messages).to include("Family name kana is invalid")
 end
 
 it 'first_name_kanaが全角カタカナでなければ登録できないこと' do
   @user.first_name_kana="あいうえお"
  @user.valid?
-  expect(@user.errors.full_messages).to include("First name kana full-width characters")
+  expect(@user.errors.full_messages).to include("First name kana is invalid")
 end
 it "passwordが半角英数字混合でなければ登録できない" do
   @user.password = "aaaaaa"
   @user.valid?
-  expect(@user.errors.full_messages).to include("Password は英数字混合にしてください")
+  expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
   end
 end
 end
