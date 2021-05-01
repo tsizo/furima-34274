@@ -31,17 +31,17 @@ end
 it "passwordが英語のみでは登録できない" do
   @user.password = "aaaaaa"
   @user.valid?
-  expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+  expect(@user.errors.full_messages).to include("Password is invalid")
   end
  it "passwordが数字のみでは登録できない" do
  @user.password = "123456"
  @user.valid?
- expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+ expect(@user.errors.full_messages).to include("Password is invalid")
  end
 it "passwordが全角のみでは登録できない" do
 @user.password = "１２３４５６"
 @user.valid?
-expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+expect(@user.errors.full_messages).to include("Password is invalid")
  end  
 it 'passwordが５文字以下であれば登録できないこと' do
 @user.password = '12345'
@@ -49,11 +49,7 @@ it 'passwordが５文字以下であれば登録できないこと' do
 @user.valid?
 expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
 end
-it'passwordは半角英数字混合でないと登録できないこと'do
-@user.password = '１２３４５６'
-@user.valid?
-expect(@user.errors.full_messages).to include("Password is invalid")
-end
+
 it"password_confirmaitionが空だと登録できない"do
 @user.password_confirmation =''
 @user.valid?
