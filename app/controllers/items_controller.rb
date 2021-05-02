@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   @item = Item.new
   end
  def create
-    #Item.save(item_params)
+  Item.save(item_params)
   end
 end
 private
