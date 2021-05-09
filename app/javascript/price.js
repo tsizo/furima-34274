@@ -13,6 +13,5 @@ console.log(salesCommission);
 const profitNumber = document.getElementById("profit");
 const result=Math.floor(inputValue*0.1)
 profitNumber.innerHTML = Math.floor(inputValue-result)
-console.log(profitNumber);
 })
 });

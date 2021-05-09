@@ -14,9 +14,6 @@ class Item < ApplicationRecord
   validates :introduction,length:{maximum: 1000}
   end
 
-def was_attached?
-    self.image.attached?
-  end
   
 extend ActiveHash::Associations::ActiveRecordExtensions
 belongs_to :status
