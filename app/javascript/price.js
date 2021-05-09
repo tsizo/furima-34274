@@ -1,9 +1,18 @@
 window.addEventListener('load', () => {
   console.log("OK");
-});
-const priceInput = document.getElementById("item-price");
-console.log(priceInput);
-const salesCommission = document.getElementById("add-tax-price");
+
+  const priceInput = document.getElementById("item-price");
+priceInput.addEventListener("input", () => {
+const inputValue = priceInput.value;
+  console.log(inputValue);
+
+  const salesCommission = document.getElementById("add-tax-price");
+salesCommission.innerHTML= Math.floor(inputValue*0.1)
 console.log(salesCommission);
-const profit = document.getElementById("profit");
-console.log(profit);
+
+const profitNumber = document.getElementById("profit");
+const result=Math.floor(inputValue*0.1)
+profitNumber.innerHTML = Math.floor(inputValue-result)
+console.log(profitNumber);
+})
+});
