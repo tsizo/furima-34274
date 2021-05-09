@@ -6,7 +6,7 @@ RSpec.describe Item, type: :model do
   end
   describe'出品機能' do
   context'出品できるとき'do
-  it'全ての項目を入力すれば登録できる'do
+  it'全ての項目を入力すれば出品できる'do
   expect(@item).to be_valid
 end
 end
