@@ -128,7 +128,7 @@
 
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       
-      <%# 配列(@itemns)に入っている要素の数が０ではない時  != 0 %>
+      
       <% if @items[0] != nil %>
       <%@items.each do |item|%>
       <% if user_signed_in?  && current_user.id == item.user_id %>
