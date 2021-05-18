@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   validates :category_id
   validates :status_id
   validates :shipping_cost_id
-  validates :shipping_days_id
+  validates :shipping_day_id
   validates :prefecture_id
   end
   validates :image
