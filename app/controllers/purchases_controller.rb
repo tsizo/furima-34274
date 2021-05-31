@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
  before_action :authenticate_user!, only: [:index,:create]
  before_action :set_purchase,       only: [:index,:create]
- before_action :move_to_root_path,  only: [:index,:create,]
+ before_action :move_to_root_path,  only: [:index,:create]
   def index
     @purchase = PurchaseAddress.new
   end

@@ -73,6 +73,12 @@ RSpec.describe PurchaseAddress, type: :model do
       @purchase.valid?
       expect(@purchase.errors.full_messages).to include("Phone number is invalid")
       end
+
+      it"phone_numberが全角数字だと登録できないこと" do
+        @purchase.phone_number = '１２３４５６７８９１２'
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include("Phone number is invalid") 
+      end  
       
       it"phone_numberが半角英語だと購入できない" do
       @purchase.phone_number = 'asdesfasdef'
