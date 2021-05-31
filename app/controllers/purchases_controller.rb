@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
  before_action :authenticate_user!, only: [:index,:create]
  before_action :set_purchase,       only: [:index,:create]
-
+ before_action :move_to_root_path,  only: [:index,:create,]
   def index
     @purchase = PurchaseAddress.new
   end
@@ -24,6 +24,12 @@ private
   def set_purchase
     @item = Item.find(params[:item_id])
   end 
+
+  def move_to_root_path
+    if current_user== @item.user || @item.purchase.present?
+      redirect_to root_path
+    end
+  end
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
